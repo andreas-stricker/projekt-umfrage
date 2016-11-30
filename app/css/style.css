@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+body{
+	background-color:#58f590;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+h1{
+	font-size:1.5rem;
+}
+
+h2{
+	font-size:2.5rem;
+	margin-top:0;
+}
+
+a, a:link, a:active, a:focus{
+	color:#385ad9;
+	text-decoration: none;
+	border-bottom:3px solid rgba(56,90,217,0);
+	padding-bottom:0.6rem;
+	-webkit-transition: all 0.35s ease-out;
+	-moz-transition: all 0.35s ease-out;
+    transition: all 0.35s ease-out;
+}
+a:hover{
+	padding-bottom:0.3rem;
+	border-bottom:3px solid rgba(56,90,217,1);
+}
+
+input[type="button"],
+button:focus {outline:0;}
+
+.wrapper{
+	margin:0 auto;
+	width:100%;
+	max-width:1600px;
+}
+
+.flexbox-box{
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+}
+
+.flex-item{
+	-webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+}
+
+section{
+    min-height:100vh;
+	text-align: center;
+}
+
+/* --------------------
+---------- UMFRAGE 
+-------------------- */
+
+#umfrage{
+	-webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+#umfrage form{
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+#umfrage .radioContainer{
+	-webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    margin-bottom:2rem;
+}
+
+#umfrage .radioContainer .flex-item{
+	width:100%;
+	-webkit-transition: all 0.35s ease-out;
+	-moz-transition: all 0.35s ease-out;
+    transition: all 0.35s ease-out;
+}
+
+
+#umfrage .radioContainer .flex-item:hover{
+	width:110%;
+}
+
+
+
+input[type=radio]{
+	opacity:0;
+	position:absolute;
+	top:0;
+	visibility: hidden;
+}
+
+input[type=radio] + label {
+	font-size: 1.2rem;
+  color: #000;
+  border:1rem solid rgba(255,255,255,0);
+  padding-top:1rem;
+  text-align: center;
+  display:block;
+  position: relative;
+  cursor:pointer;
+  height:calc(100% - 2rem);
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0);
+	-moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0);
+	box-shadow: 0px 0px 25px 0px rgba(0,0,0,0);
+
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+} 
+
+input[type=radio] + label:hover{
+	background-color:#7ef8a6;
+	-webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.15);
+	box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.15);
+}
+
+input[type=radio]:checked + label {
+	border-color:rgba(255,255,255,0.3);
+	background-color:#9df8bb;
+} 
+
+#umfrage label{
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+	  -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+
+#absenden,
+.btn{
+	color:#000;
+	display:block;
+	margin:0 auto;
+	margin-bottom:1rem;
+	background-color:transparent;
+	border:2px solid #000;
+	padding:1rem;
+	-webkit-transition: all 0.35s cubic-bezier(0.250, 0.250, 0.105, 1.650);
+	-moz-transition: all 0.35s cubic-bezier(0.250, 0.250, 0.105, 1.650);
+    transition: all 0.35s cubic-bezier(0.250, 0.250, 0.105, 1.650);
+}
+
+#absenden:hover,
+.btn:hover{
+	padding:1rem 1.5rem;
+	background-color:#7ef8a6;
+	border-color:#000;
+	border-width:2px;
+}
+
+#umfrage .bottom{
+	padding:2rem;
+}
+
+.hinweis{
+	position: fixed;
+	top:0;
+	left:0;
+	bottom:-100vh;
+	right:0;
+	opacity:0;
+	padding:2rem;
+	visibility: hidden;
+	background-color:rgba(228,232,133,0.9);
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    -webkit-transition: all 0.5s cubic-bezier(0.415, 0.105, 0.000, 1.040);
+    -moz-transition: all 0.5s cubic-bezier(0.415, 0.105, 0.000, 1.040);
+    transition: all 0.5s cubic-bezier(0.415, 0.105, 0.000, 1.040);
+}
+
+.hinweis .btn:hover{
+	background-color:rgba(228,232,133,0.85);
+}
+
+.hinweis.show{
+	bottom:0;
+	opacity:1;
+	visibility: visible;
+}
+
+/* --------------------
+---------- ERGEBNIS 
+-------------------- */
+
+
+#ergebnis{
+    padding:0 2rem;
+    margin:0;
+    background-color:#6eb4fc;
+}
+#ergebnis .wrapper > .flexbox-box{
+	-webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.ergebnisLine{
+	-webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom:3rem	;
+}
+
+.ergebnisLine img{
+	margin-right:2rem;
+}
+.ergebnisLine h3{
+	text-align: left;
+	width:100%;
+	margin-top:0;
+	margin-bottom:0.8rem;
+}
+.ergebnisLine .percentage{
+	margin-left:1rem;
+	font-size:2rem;
+	width:6rem;
+	position:relative;
+	bottom:0.5rem;
+}
+.ergebnisLine .percentage span{
+	font-size:1rem;
+	display:block;
+}
+
+.ergebnisLine .bar{
+	-webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+	flex-wrap:wrap;
+}
+
+
+.meter { 
+			-webkit-flex: 1 1 auto;
+		    -ms-flex: 1 1 auto;
+		    flex: 1 1 auto;
+			height: 2rem; 
+			position: relative;
+			background: #555;
+			-moz-border-radius: 8px;
+			-webkit-border-radius: 8px;
+			border-radius: 8px;
+			padding: 0.4rem;
+			-webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+			-moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
+			box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
+		}
+		.meter > span {
+			display: block;
+			height: 100%;
+				   -webkit-border-radius: 5px;
+					-webkit-border-radius: 5px;
+			       -moz-border-radius: 5px;
+			           border-radius: 5px;
+			background-color: rgb(255,255,255);
+			background-image: -webkit-gradient(
+			  linear,
+			  left bottom,
+			  left top,
+		
+			 );
+			background-image: -moz-linear-gradient(
+			  center bottom,
+			  rgb(43,194,83) 37%,
+			  rgb(84,240,84) 69%
+			 );
+			-webkit-box-shadow: 
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			-moz-box-shadow: 
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			box-shadow: 
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			position: relative;
+			overflow: hidden;
+		}
+		
+		@-webkit-keyframes move {
+		    0% {
+		       background-position: 0 0;
+		    }
+		    100% {
+		       background-position: 50px 50px;
+		    }
+		}
+		
+
+
+/* --------------------
+---------- ADMIN 
+-------------------- */
+
+
+
+/* --------------------
+---------- HELPERS 
+-------------------- */
+
+.hide{
+	display:none;
+}
+
+
+/* --------------------
+---------- RESPONSIVE 
+-------------------- */
+
+@media only screen and (max-width: 1024px) {
+
+	#umfrage .radioContainer .flex-item,
+	#umfrage .radioContainer .flex-item:hover{
+		width:40%;
+		margin:0 2rem;
+	}
+
+	#umfrage label{
+		padding:1rem;
+	}
+
+
+	#umfrage .radioContainer img{
+		width:100%;
+		height:auto;
+		min-height: 0;
+	}
+}
+
+@media only screen and (max-width: 580px) {
+	#umfrage .radioContainer{
+		-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	    flex-direction: column;
+	}
+
+	#umfrage .radioContainer .flex-item,
+	#umfrage .radioContainer .flex-item:hover{
+		width:100%;
+		margin:0;
+	}
+	#umfrage .radioContainer .flex-item label{
+		border-width:0.5rem;
+	}
+
+
+	#ergebnis .ergebnisLine{
+		-webkit-align-items: flex-start;
+	    -ms-flex-align: start;
+	    align-items: flex-start;
+
+		-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	    flex-direction: column;
+	}
+
+	.ergebnisLine img{
+		margin-right:0;
+		margin-bottom:1rem;
+	}
+
+	#ergebnis .bar{
+		width:100%;
+	}
+}
+
