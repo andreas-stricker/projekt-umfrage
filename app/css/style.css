@@ -299,9 +299,10 @@ input[type=radio]:checked + label {
 	position:relative;
 	bottom:0.5rem;
 }
-.ergebnisLine .percentage span{
+.ergebnisLine .percentage p{
 	font-size:1rem;
 	display:block;
+	margin:0;
 }
 
 .ergebnisLine .bar{

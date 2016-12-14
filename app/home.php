@@ -2,10 +2,22 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <?php 
+            $getumfrage_sql = "SELECT frage, antwort1, img1, antwort2, img2 FROM umfrage";
+            $result = mysqli_query($dblink, $getumfrage_sql);
+            $row   = mysqli_fetch_row($result);
+            $frage = $row['0'];
+            $antwort1 = $row['1'];       
+            $img1 = 'images/'.$row['2'].'.jpg';
+            $antwort2 = $row['3'];       
+            $img2 = 'images/'.$row['4'].'.jpg';
+        ?>
+        
+
         <section id="umfrage">
             <div class="wrapper">
                 <h1>Umfrage</h1>
-                <h2>Hier steht die Frage?</h2>
+                <h2><?php echo $frage; ?></h2>
 
                 <form class="flexbox-box">
                     <div class="radioContainer flexbox-box">
@@ -13,14 +25,14 @@
                         	<input type="radio" name="antwort" id="1" value="1">
                         	<label for="1" class="flexbox-box">
                         		  <img src="http://placehold.it/350x300">
-                        		<p>Das ist die erste Antwort</p>
+                        		<p><?php echo $antwort1; ?></p>
                         	</label> 
                         </div>
                         <div class="flex-item">
                         	<input type="radio" name="antwort" id="2" value="2">
                         	<label for="2" class="flexbox-box">
                         		  <img src="http://placehold.it/350x300">
-                        		<p>Das ist die zweite Antwort</p>
+                        		<p><?php echo $antwort2; ?></p>
                         	</label>
                         </div>
                     </div>
@@ -42,9 +54,8 @@
         <section id="ergebnis" class="hide">
             <div class="wrapper">
                 <div class="flexbox-box">
-                    <h1>Umfrage: Hier steht die Frage?</h1>
+                    <h1>Umfrage: <?php echo $frage;?></h1>
                     <h2>Ergebnis</h2>
-
 
                     <div>
                         <div class="ergebnisLine flexbox-box">
@@ -52,23 +63,22 @@
                             
                             <div class="bar flexbox-box">
                                 <h3>Antwort 1</h3>
-                                <div class="meter">
+                                <div class="meter meter1">
                                     <span data-width="75%"></span>
                                 </div>
-                                <div class="percentage">75% <span>8 Stimmen</span></div>
+                                <div class="percentage"><span class="percentage1">90 %</span> <p><span id="stimmen1"></span> Stimmen</p></div>
                             </div>
                         </div>
-
 
                         <div class="ergebnisLine flexbox-box">
                             <img src="http://placehold.it/150x110">
                             
                             <div class="bar flexbox-box">
                                 <h3>Antwort 2</h3>
-                                <div class="meter">
+                                <div class="meter meter2">
                                     <span data-width="25%"></span>
                                 </div>
-                                <div class="percentage">25% <span>2 Stimmen</span></div>
+                                <div class="percentage"><span class="percentage2">10%</span> <p><span id="stimmen2"></span> Stimmen</p></div>
                             </div>
                         </div>
                     </div>
