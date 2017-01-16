@@ -19,7 +19,10 @@ if($page == "home") {
 	$content = 'login.php';
 } elseif($page == "registration") {
 	$content = 'registration.php';
+} elseif($page == "backend") {
+	$content = 'backend.php';
 }
+
 
 include("header.php");
 include($content);

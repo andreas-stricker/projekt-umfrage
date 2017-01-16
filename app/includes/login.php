@@ -27,7 +27,7 @@ if(!empty($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
 			$success = 1;
 
 
-			header('Location: index.php?page=home');
+			header('Location: index.php?page=backend');
 
 		} else {
 			echo "Bitte gib das korrekte Passwort ein";
