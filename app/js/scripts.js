@@ -98,11 +98,41 @@ $('document').ready(function(){
 	});
 
 	//hinweis ausblenden
-	$('#umfrage .hinweis .btn').click(function(e){
+	$('.hinweis .btn').click(function(e){
 		e.preventDefault();
-		$('#umfrage .hinweis').removeClass('show');
+		$('.hinweis').removeClass('show');
 		$('body').css('overflow','auto');
 	})
 
+
+
+
+	/* ------------ ADMIN ----------- */
+
+	//click on absenden
+	$('#umfrageBeenden').click(function(e){
+		e.preventDefault();
+
+		$.ajax({
+			url: 'includes/save_umfrage.php',
+         	data: {action: 'save'},
+         	type: 'post',
+         	success: function(data) {
+                      if (data == 'saved'){
+                      	$('.backend .hinweis.saved').addClass('show');
+                      }else if( data == 'exists'){
+                      	$('.backend .hinweis.exists').addClass('show');
+                      }
+                      $('html, body').animate({
+					        scrollTop: $('#bisherigeUmfragen').offset().top
+					    }, 500);
+                  }
+		});
+	});
+
+	if($('.backend').hasClass('alte_umfragen')){
+		loadProgressBars();
+	}
+		
 
 });

@@ -201,9 +201,12 @@ input[type=radio]:checked + label {
 #absenden:hover,
 .btn:hover{
 	padding:1rem 1.5rem;
-	background-color:#7ef8a6;
 	border-color:#000;
 	border-width:2px;
+}
+
+#absenden:hover{
+		background-color:#7ef8a6;
 }
 
 #umfrage .bottom{
@@ -217,6 +220,7 @@ input[type=radio]:checked + label {
 	bottom:-100vh;
 	right:0;
 	opacity:0;
+	z-index:999;
 	padding:2rem;
 	visibility: hidden;
 	background-color:rgba(228,232,133,0.9);
@@ -245,13 +249,17 @@ input[type=radio]:checked + label {
 }
 
 .hinweis .btn:hover{
-	background-color:rgba(228,232,133,0.85);
+	/*background-color:rgba(228,232,133,0.85);*/
 }
 
 .hinweis.show{
 	bottom:0;
 	opacity:1;
 	visibility: visible;
+}
+
+.hinweis.saved{
+	background-color:rgba(88,245,144,0.9);
 }
 
 /* --------------------
@@ -387,9 +395,38 @@ footer a {
 
 
 /* --------------------
----------- ADMIN 
+---------- BACKEND 
 -------------------- */
 
+
+
+.backend{
+    padding:0 2rem;
+    margin:0;
+    background-color:#a7f8ff;
+}
+
+.backend h1{
+	font-size:2.5rem;
+}
+
+.backend h2{
+	font-size:1.5em;
+}
+
+.backend .wrapper > .flexbox-box{
+	-webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+
+/* bisherige Umfragen */
+
+.backend.alte_umfragen{
+	padding-top:3em;
+    background-color:#d6faff;
+}
 
 
 /* --------------------
@@ -399,6 +436,10 @@ footer a {
 .hide{
 	display:none;
 }
+
+
+
+
 
 
 /* --------------------
