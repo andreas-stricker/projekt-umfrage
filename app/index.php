@@ -17,6 +17,9 @@ if($page == "home") {
 	$content = 'home.php';
 } elseif($page == "login") {
 	$content = 'login.php';
+} elseif($page == "logout") {
+	require('includes/logout.php');
+	$content = 'logout.php';
 } elseif($page == "registration") {
 	$content = 'registration.php';
 } elseif($page == "backend") {

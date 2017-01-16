@@ -368,6 +368,17 @@ input[type=radio]:checked + label {
 		       background-position: 50px 50px;
 		    }
 		}
+
+
+
+footer {
+	background-color: #d6d6d6;
+}
+
+footer a {
+	display: block;
+	text-align: center;
+}
 		
 
 
