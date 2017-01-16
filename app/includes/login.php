@@ -6,8 +6,12 @@ if(!empty($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
 	$user_name = $_POST['user_name'];
 	$user_password = $_POST['user_password'];
 
-	$result = $dblink -> query("SELECT * FROM users WHERE user_name = '$user_name'");
-	$user = $result -> fetch_array(MYSQL_ASSOC);
+	// $result = $dblink -> query("SELECT * FROM users WHERE user_name = '$user_name'");
+	// $user = $result -> fetch_array(MYSQL_ASSOC);
+
+	$user_sql = "SELECT * FROM users WHERE user_name = '$user_name'";
+	$result = mysqli_query($dblink, $user_sql);
+	
 
 
 	// $login_sql = "SELECT * FROM users WHERE email = '$user_email'";
@@ -15,7 +19,10 @@ if(!empty($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
 
 	if(mysqli_num_rows($result) == 1) {
 	
+		$user = mysqli_fetch_assoc($result);
 		// $user = mysqli_fetch_assoc($result);
+
+		print_r($user);
 
 		$hashed_password = sha1($user_password.$user['salt']);
 
