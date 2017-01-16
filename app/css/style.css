@@ -372,12 +372,16 @@ input[type=radio]:checked + label {
 
 
 footer {
-	background-color: #d6d6d6;
+	background-color: #fff;
+	height: 50px;
 }
 
 footer a {
 	display: block;
+	width: 5em;
 	text-align: center;
+	padding: 1em;
+	margin: 0 auto;
 }
 		
 
