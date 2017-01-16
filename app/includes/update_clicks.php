@@ -11,7 +11,7 @@ include("dbconnect.php");
 
 
 if ($_GET["antwort"] == '1'){
-	$query = "UPDATE `umfrage` SET `clicks1`= 1";
+	$query = "UPDATE `umfrage` SET `clicks1`= ".$clicks1." + 1";
 	mysqli_query($dblink, $query);
 }elseif ($_GET["antwort"] == '2'){
 	$query = "UPDATE `umfrage` SET `clicks2`= ".$clicks2."+ 1";
