@@ -2,7 +2,7 @@
 
 if(!empty($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
 
-	if($_POST['action'] == 'umfrage_erstellen') {
+	if(ísset($_POST['action']) && $_POST['action'] == 'umfrage_erstellen') {
 		$fragestellung = $_POST['frage'];
 		$antwort1 = $_POST['antwort1'];
 		$bild1 = $_POST['bild1'];

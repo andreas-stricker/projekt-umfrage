@@ -49,7 +49,7 @@ if(($_SESSION['login'] == 1) ){?>
         </div>
     </section>
 
-    <section class="backend" id="neue-umfrage">
+    <section class="backend hide" id="neueUmfrage">
         <div class="wrapper">
             <form action="umfrage_erstellen" method="post" accept-charset="utf-8">
                 <div class="flexbox-box">
@@ -73,7 +73,7 @@ if(($_SESSION['login'] == 1) ){?>
                     <input type="text" name="bild2">
                 </div>
                 <div class="flex-box">
-                    <input type="submit" value="Umfrage erstellen" class="btn">
+                    <input type="submit" value="Umfrage erstellen" class="btn" id="umfrageSubmit">
                 </div>
             </form>
             

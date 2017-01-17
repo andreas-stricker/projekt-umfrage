@@ -154,6 +154,27 @@ $('document').ready(function(){
 		});
 	});
 
+	//Neue Umfrage erstellen
+	$('#umfrageErstellen').click(function() {
+		$('#neueUmfrage').show();
+		$('#umfrageErstellen').hide();
+	});
+
+	// Neue Umfrage bestätigen
+	$('#umfrageSubmit').click(function() {
+		event.preventDefault();
+
+		$.ajax({
+			url: 'includes/new_umfrage.php',
+			data: {action: 'umfrage_erstellen'},
+			type: 'post',
+			dataType: 'json',
+			success: function(data) {
+
+			}
+		})
+	})
+
 	if($('.backend').hasClass('alte_umfragen')){
 		loadProgressBars();
 	}
