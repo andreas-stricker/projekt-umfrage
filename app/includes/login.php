@@ -33,8 +33,8 @@ if(!empty($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
 			$_SESSION['username'] = $user['name'];
 			$success = 1;
 
-
-			header('Location: index.php?page=backend');
+			header('Location: index.php?page=admin');
+			exit;
 
 		} else {
 			echo "Bitte gib das korrekte Passwort ein";

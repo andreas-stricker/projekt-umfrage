@@ -14,14 +14,14 @@ print_r($row);
 // $prozent2 = ($clicks2/$summeClicks) * 100;
 
 
-if(($_SESSION['login'] == 1) || isset($_POST['login']) ){?>
+if(($_SESSION['login'] == 1) ){?>
 
 
 
     <section class="backend">
         <div class="wrapper">
                 <h1>Administration</h1>
-                <a class="logout" href="?page=logout">Logout</a>
+                <a class="logout" href="index.php?page=logout">Logout</a>
 
 
                 <h2>Aktuelle Umfrage:<br> <?php echo $row['frage']; ?></h2>
