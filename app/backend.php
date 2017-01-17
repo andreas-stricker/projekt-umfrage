@@ -48,10 +48,10 @@ if(($_SESSION['login'] == 1) ){?>
 
         </div>
     </section>
-
+	<?php require('includes/new_umfrage.php'); ?>
     <section class="backend hide" id="neueUmfrage">
         <div class="wrapper">
-            <form action="umfrage_erstellen" method="post" accept-charset="utf-8">
+            <form method="post" accept-charset="utf-8">
                 <div class="flexbox-box">
                 <label for="frage">Gib hier die Fragestellung ein</label>
                 <input type="text" name="frage">
@@ -62,7 +62,7 @@ if(($_SESSION['login'] == 1) ){?>
                 </div>
                 <div class="flexbox-box">
                     <label for="bild1">Lade hier die 1. Bild hoch</label>
-                    <input type="text" name="bild1">
+                    <input type="file" name="bild1">
                 </div>
                 <div class="flexbox-box">
                     <label for="antwort2">Gib hier die 2. Antwort ein</label>
@@ -70,7 +70,7 @@ if(($_SESSION['login'] == 1) ){?>
                 </div>
                 <div class="flexbox-box">
                     <label for="bild2">Lade hier die 2. Bild hoch</label>
-                    <input type="text" name="bild2">
+                    <input type="file" name="bild2">
                 </div>
                 <div class="flex-box">
                     <input type="submit" value="Umfrage erstellen" class="btn" id="umfrageSubmit">

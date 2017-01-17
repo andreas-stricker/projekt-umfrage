@@ -170,7 +170,7 @@ $('document').ready(function(){
 			type: 'post',
 			dataType: 'json',
 			success: function(data) {
-
+				alert('yes');
 			}
 		})
 	})
