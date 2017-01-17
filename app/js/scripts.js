@@ -161,25 +161,27 @@ $('document').ready(function(){
 	});
 
 	// Neue Umfrage bestätigen
-	$('#umfrageSubmit').click(function(event) {
-		event.preventDefault();
+	$('#neueUmfrage form').on('submit', function(e){
+		e.preventDefault();
 
+		var bild1 = ($("#bild1"))[0].files[0];
+		var bild2 = ($("#bild2"))[0].files[0];
+		myData = new FormData();
 
-
-		$frage= $('#frage').val();
-		$antwort1= $('#antwort1').val();
-		$antwort2= $('#antwort2').val();
-
+		myData.append('frage', $('#frage').val() );
+		myData.append('antwort1', $('#antwort1').val() );
+		myData.append('bild1', bild1);
+		myData.append('antwort2', $('#antwort2').val() );
+		myData.append('bild2', bild2);
 
 		$.ajax({
 			url: 'includes/new_umfrage.php',
-			data: {
-				frage: $frage,
-				antwort1: $antwort1,
-				antwort2: $antwort2,
-			},
-			type: 'post',
+			type: 'POST',
+			data: myData,
+			processData: false,
+			contentType: false,
 			success: function(data) {
+				alert(data);
 				$('#neueUmfrage').hide();
 
 			},
@@ -192,7 +194,6 @@ $('document').ready(function(){
 	if($('.backend').hasClass('alte_umfragen')){
 		loadProgressBars();
 	}
-	
-	console.log(frage);
-	
+		
+
 });
