@@ -5,7 +5,7 @@ $getumfrage_data_sql = "SELECT * FROM umfrage";
 $result = mysqli_query($dblink, $getumfrage_data_sql);
 $row = mysqli_fetch_assoc($result);
 
-print_r($row);
+// print_r($row);
 
 // $clicks1 = (int)$row['clicks1'];
 // $clicks2 = (int)$row['clicks2'];

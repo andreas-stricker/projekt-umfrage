@@ -167,7 +167,7 @@ $('document').ready(function(){
 		$.ajax({
 			url: 'includes/new_umfrage.php',
 			data: {
-				fragestellung: fragestellung,
+				frage: frage,
 				antwort1: antwort1,
 				bild1: bild1,
 				antwort2: antwort2,
@@ -175,7 +175,8 @@ $('document').ready(function(){
 			},
 			type: 'post',
 			success: function(data) {
-				alert(data);
+				$('#neueUmfrage').hide();
+
 			},
 			error: function(data) {
 				alert('here is an error');
