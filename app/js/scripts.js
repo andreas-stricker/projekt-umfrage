@@ -164,6 +164,12 @@ $('document').ready(function(){
 	$('#umfrageSubmit').click(function() {
 		event.preventDefault();
 
+		var frage = $('#frage').val();
+		var antwort1 = $('#antwort1').val();
+		var bild1 = $('#bild1').val();
+		var antwort2 = $('#antwort2').val();
+		var bild2 = $('#bild2').val();
+
 		$.ajax({
 			url: 'includes/new_umfrage.php',
 			data: {
@@ -187,6 +193,7 @@ $('document').ready(function(){
 	if($('.backend').hasClass('alte_umfragen')){
 		loadProgressBars();
 	}
-		
-
+	
+	console.log(frage);
+	
 });
