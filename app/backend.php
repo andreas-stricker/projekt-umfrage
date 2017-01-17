@@ -41,10 +41,16 @@ $prozent2 = ($clicks2/$summeClicks) * 100;
                                 <div class="meter meter2">
                                     <span data-width="<?php echo $prozent2; ?>"></span>
                                 </div>
-                                <div class="percentage"><span class="percentage2"><?php echo $prozent1; ?> %</span> <p><span id="stimmen2"></span> Stimmen</p></div>
+                                <div class="percentage"><span class="percentage2"><?php echo $prozent2; ?> %</span> <p><span id="stimmen2"></span> Stimmen</p></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <script>
+        	e.preventDefault();
+        	loadProgressBars();
+        	loadErgebnis();
+        </script>
