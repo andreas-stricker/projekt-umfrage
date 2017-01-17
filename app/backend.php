@@ -55,11 +55,11 @@ if(($_SESSION['login'] == 1) ){?>
             <form method="post" accept-charset="utf-8">
                 <div class="flexbox-box">
                 <label for="frage">Gib hier die Fragestellung ein</label>
-                <input type="text" name="frage">
+                <input id="frage" type="text" name="frage">
                 </div>
                 <div class="flexbox-box">
                     <label for="antwort1">Gib hier die 1. Antwort ein</label>
-                    <input type="text" name="antwort1">
+                    <input id="antwort1" type="text" name="antwort1">
                 </div>
                 <div class="flexbox-box">
                     <label for="bild1">Lade hier die 1. Bild hoch</label>
@@ -67,7 +67,7 @@ if(($_SESSION['login'] == 1) ){?>
                 </div>
                 <div class="flexbox-box">
                     <label for="antwort2">Gib hier die 2. Antwort ein</label>
-                    <input type="text" name="antwort2">
+                    <input id="antwort2" type="text" name="antwort2">
                 </div>
                 <div class="flexbox-box">
                     <label for="bild2">Lade hier die 2. Bild hoch</label>
