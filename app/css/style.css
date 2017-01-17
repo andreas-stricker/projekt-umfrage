@@ -420,6 +420,11 @@ footer a {
     flex-direction: column;
 }
 
+.backend .logout{
+	position:absolute;
+	top:2em;
+	right:2em;
+}
 
 /* bisherige Umfragen */
 
@@ -427,6 +432,8 @@ footer a {
 	padding-top:3em;
     background-color:#d6faff;
 }
+
+
 
 
 /* --------------------
