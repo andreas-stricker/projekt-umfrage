@@ -19,17 +19,52 @@ if(($_SESSION['login'] == 1) ){?>
 
 
 
-    <section class="backend">
+    <section class="backend admin">
         <div class="wrapper">
                 <h1>Administration</h1>
                 <a class="logout" href="index.php?page=logout">Logout</a>
 
 
-                <h2>Aktuelle Umfrage:<br> <?php echo $row['frage']; ?></h2>
+                <?php /* <h2>Aktuelle Umfrage:<br> <?php echo $row['frage']; ?></h2> */ ?>
 
+            <?php if(mysqli_num_rows($result) >= 1) { ?>
+                <input id="umfrageBeenden" type="button" class="btn" value="Umfrage beenden und speichern">
+            <?php }else{ ?>
+                <input id="umfrageErstellen" type="button" class="btn" value="Neue Umfrage erstellen">
+            <?php } ?>
 
-            <input id="umfrageBeenden" type="button" class="btn" value="Umfrage beenden und speichern">
-            <input id="umfrageErstellen" type="button" class="btn" value="Neue Umfrage erstellen">
+                <div class="backend hide" id="neueUmfrage">
+                    <div class="wrapper">
+                        <form method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                            <div class="flexbox-box">
+                            <label for="frage">Gib hier die Fragestellung ein</label>
+                            <input id="frage" type="text" name="frage">
+                            </div>
+                            <div class="flexbox-box">
+                                <label for="antwort1">Gib hier die 1. Antwort ein</label>
+                                <input id="antwort1" type="text" name="antwort1">
+                            </div>
+                            <div class="flexbox-box">
+                                <label for="bild1">Lade hier die 1. Bild hoch</label>
+                                <input type="file" name="bild1" id="bild1">
+                            </div>
+                            <div class="flexbox-box">
+                                <label for="antwort2">Gib hier die 2. Antwort ein</label>
+                                <input id="antwort2" type="text" name="antwort2">
+                            </div>
+                            <div class="flexbox-box">
+                                <label for="bild2">Lade hier die 2. Bild hoch</label>
+                                <input type="file" name="bild2" id="bild2">
+                            </div>
+                            <div class="flex-box">
+                                <input type="submit" value="Umfrage erstellen" class="btn" id="umfrageSubmit">
+                            </div>
+                        </form>
+                        
+
+                    </div>
+                    
+                </div>
 
 
 
@@ -50,41 +85,7 @@ if(($_SESSION['login'] == 1) ){?>
         </div>
     </section>
 	
-    <section class="backend hide" id="neueUmfrage">
-        <div class="wrapper">
-            <form method="post" accept-charset="utf-8" enctype="multipart/form-data">
-                <div class="flexbox-box">
-                <label for="frage">Gib hier die Fragestellung ein</label>
-                <input id="frage" type="text" name="frage">
-                </div>
-                <div class="flexbox-box">
-                    <label for="antwort1">Gib hier die 1. Antwort ein</label>
-                    <input id="antwort1" type="text" name="antwort1">
-                </div>
-                <div class="flexbox-box">
-                    <label for="bild1">Lade hier die 1. Bild hoch</label>
-                    <input type="file" name="bild1" id="bild1">
-                </div>
-                <div class="flexbox-box">
-                    <label for="antwort2">Gib hier die 2. Antwort ein</label>
-                    <input id="antwort2" type="text" name="antwort2">
-                </div>
-                <div class="flexbox-box">
-                    <label for="bild2">Lade hier die 2. Bild hoch</label>
-                    <input type="file" name="bild2" id="bild2">
-                </div>
-                <div class="flex-box">
-                    <input type="submit" value="Umfrage erstellen" class="btn" id="umfrageSubmit">
-                </div>
-            </form>
-            
-
-        </div>
-        
-    </section>
-
-
-
+    
 
     <section class="backend alte_umfragen" id="bisherigeUmfragen">
         <div class="wrapper">
