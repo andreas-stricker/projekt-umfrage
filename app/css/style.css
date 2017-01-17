@@ -434,6 +434,28 @@ footer a {
 }
 
 
+/* neue Umfrage Form */
+#neueUmfrage{
+	padding:3em 0;
+}
+#neueUmfrage form{
+	width:100%;
+	max-width:45em;
+	margin:0 auto;
+}
+
+#neueUmfrage form label{
+	width:50%;
+}
+
+#neueUmfrage form input{
+	flex:1;
+	padding:0.25em 0.5em;
+}
+
+#neueUmfrage form .flexbox-box{
+	margin-bottom:2em;
+}
 
 
 /* --------------------
