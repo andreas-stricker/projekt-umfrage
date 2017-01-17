@@ -2,10 +2,9 @@
 include("dbconnect.php");
 
 if(isset($_POST['action']) && !empty($_POST['action'])) {
-    $action = $_POST['action'];
+    
 
-
-// GET CURRENT UMFRAGE
+	// GET CURRENT UMFRAGE
     $getumfrage_sql = "SELECT frage, antwort1, img1, clicks1, antwort2, img2, clicks2 FROM umfrage";
 	$result = mysqli_query($dblink, $getumfrage_sql);
 	$row   = mysqli_fetch_row($result);
@@ -19,7 +18,7 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
 	$clicks2 = $row['6'];
 
 
-// ABFRAGE OB ES DIESE UMFRAGE BEREITS GIBT
+	// ABFRAGE OB ES DIESE UMFRAGE BEREITS GIBT
 	$umfrageExists = "SELECT * FROM alte_umfragen WHERE frage = '$frage' AND antwort1 = '$antwort1' AND antwort2 = '$antwort2'";
 	$result = mysqli_query($dblink, $umfrageExists);
 
@@ -32,6 +31,11 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
 	}else{
 		echo 'exists';
 	}
+
+	//delete Umfrage
+	$deleteUmfrage = "DELETE FROM umfrage WHERE 1";
+	mysqli_query($dblink, $deleteUmfrage);
+
 
 }
 
