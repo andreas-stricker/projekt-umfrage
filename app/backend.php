@@ -5,14 +5,17 @@ $result = mysqli_query($dblink, $getumfrage_data_sql);
 $row = mysqli_fetch_assoc($result);
 
 print_r($row);
-$clicks1 = (int)$row['clicks1'];
-$clicks2 = (int)$row['clicks2'];
 
-$summeClicks = $clicks1 + $clicks2;
-$prozent1 = ($clicks1/$summeClicks) * 100;
-$prozent2 = ($clicks2/$summeClicks) * 100;
+// $clicks1 = (int)$row['clicks1'];
+// $clicks2 = (int)$row['clicks2'];
+
+// $summeClicks = $clicks1 + $clicks2;
+// $prozent1 = ($clicks1/$summeClicks) * 100;
+// $prozent2 = ($clicks2/$summeClicks) * 100;
 
 ?>
+
+
 
 <section id="ergebnis">
             <div class="wrapper">
