@@ -91,12 +91,15 @@ print_r($row);
         <div class="flexbox-box">
             <h1>Bisherige Umfragen</h1>
             
+
+
+            <div id="bisherigeErgebnisse">
             <?php
                 $getumfrage_sql = "SELECT frage, antwort1, img1, clicks1, antwort2, img2, clicks2, id FROM alte_umfragen ORDER BY id ASC";
                 $result = mysqli_query($dblink, $getumfrage_sql);
 
                 if(mysqli_num_rows($result) == 0) { 
-                    echo '<h2>Bis jetzt gab es noch keine Umfragen</h2>';
+                    echo '<h2 class="keineEintraege">Bis jetzt gab es noch keine Umfragen</h2>';
                 }
            
 
@@ -118,7 +121,7 @@ print_r($row);
                                 <div class="meter meter1">
                                     <span data-width="<?php echo $prozent1; ?>%"></span>
                                 </div>
-                                <div class="percentage"><span class="percentage1"><?php echo $prozent1; ?> %</span> <p><span><?php echo $row['clicks1'];?></span> Stimmen</p></div>
+                                <div class="percentage"><span class="percentage1"><?php echo round($prozent1); ?> %</span> <p><span><?php echo $row['clicks1'];?></span> Stimmen</p></div>
                             </div>
                         </div>
 
@@ -130,18 +133,18 @@ print_r($row);
                                 <div class="meter meter2">
                                     <span data-width="<?php echo $prozent2; ?>%"></span>
                                 </div>
-                                <div class="percentage"><span class="percentage2"><?php echo $prozent1; ?> %</span> <p><span><?php echo $row['clicks2'];?></span> Stimmen</p></div>
+                                <div class="percentage"><span class="percentage2"><?php echo round($prozent2); ?> %</span> <p><span><?php echo $row['clicks2'];?></span> Stimmen</p></div>
                             </div>
                         </div>
                     </div>
 
                     
 
-                    <?php
+        <?php
                 }
 
- ?>
-
+        ?>
+            </div>
             
 
         </div>

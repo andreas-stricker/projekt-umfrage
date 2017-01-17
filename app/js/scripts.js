@@ -119,13 +119,37 @@ $('document').ready(function(){
          	type: 'post',
          	success: function(data) {
                       if (data == 'saved'){
-                      	$('.backend .hinweis.saved').addClass('show');
+	                      	$('.backend .hinweis.saved').addClass('show');
+
+	                      	//show newest above
+	                      	$.ajax({
+								url: 'includes/save_umfrage.php',
+					         	data: {action: 'update'},
+					         	type: 'post',
+				 			    dataType: 'json',
+					         	success: function(data) {
+
+					         			$clicks1 = parseInt(data[3]);  
+	        							$clicks2 = parseInt(data[6]);
+
+					         			$summeClicks = parseInt($clicks1) + parseInt($clicks2);
+										$prozent1 = ($clicks1/$summeClicks) * 100;
+										$prozent2 = ($clicks2/$summeClicks) * 100;
+					                      $('#bisherigeErgebnisse').prepend('<div><h2>'+data[0]+'</h2><div class="ergebnisLine flexbox-box"><img src="images/'+data[2]+'"><div class="bar flexbox-box"><h3>'+data[1]+'</h3><div class="meter meter1"><span style="width:'+$prozent1+'%"></span></div><div class="percentage"><span class="percentage1">'+Math.round($prozent1)+' %</span> <p><span>'+data[3]+'</span> Stimmen</p></div></div></div><div class="ergebnisLine flexbox-box"><img src="images/'+data[5]+'"><div class="bar flexbox-box"><h3>'+data[4]+'</h3><div class="meter meter2"><span style="width:'+$prozent2+'%"></span></div><div class="percentage"><span class="percentage2">'+Math.round($prozent2)+' %</span> <p><span>'+data[6]+'</span> Stimmen</p></div></div></div></div>');
+					                  }
+							});
+
+							$('.keineEintraege').hide();
+                    
                       }else if( data == 'exists'){
-                      	$('.backend .hinweis.exists').addClass('show');
+	                      	$('.backend .hinweis.exists').addClass('show');
+
+	                      	$('html, body').animate({
+						        scrollTop: $('#bisherigeUmfragen').offset().top
+						    }, 500);
+
                       }
-                      $('html, body').animate({
-					        scrollTop: $('#bisherigeUmfragen').offset().top
-					    }, 500);
+                      
                   }
 		});
 	});

@@ -1,7 +1,8 @@
 <?php
 include("dbconnect.php");
 
-if(isset($_POST['action']) && !empty($_POST['action'])) {
+//SAVE AND DELETE
+if(isset($_POST['action']) && !empty($_POST['action']) && ($_POST['action'] =='save')) {
     
 
 	// GET CURRENT UMFRAGE
@@ -35,10 +36,19 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
 	//delete Umfrage
 	$deleteUmfrage = "DELETE FROM umfrage WHERE 1";
 	mysqli_query($dblink, $deleteUmfrage);
-
-
+	
 }
 
 
-
 	
+// GET UPDATED alte_umfragen
+if(isset($_POST['action']) && !empty($_POST['action']) && ($_POST['action'] =='update')) {
+
+	$getAlteUmfragen = "SELECT * FROM alte_umfragen";
+	$result = mysqli_query($dblink, $getAlteUmfragen);
+	$row   = mysqli_fetch_row($result);
+
+
+	echo json_encode($row);
+
+}
