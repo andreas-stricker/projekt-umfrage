@@ -115,7 +115,7 @@ if(($_SESSION['login'] == 1) ){?>
                         <div>
                             <h2><?php echo $row["frage"]; ?></h2>
                             <div class="ergebnisLine flexbox-box">
-                                <img src="images/<?php echo $row['img1'];?>">
+                                <img src="uploads/<?php echo $row['img1'];?>">
                                 
                                 <div class="bar flexbox-box">
                                     <h3><?php echo $row['antwort1'];?></h3>
@@ -127,7 +127,7 @@ if(($_SESSION['login'] == 1) ){?>
                             </div>
 
                             <div class="ergebnisLine flexbox-box">
-                                <img src="images/<?php echo $row['img2'];?>">
+                                <img src="uploads/<?php echo $row['img2'];?>">
                                 
                                 <div class="bar flexbox-box">
                                     <h3><?php echo $row['antwort2'];?></h3>
