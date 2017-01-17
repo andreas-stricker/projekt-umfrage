@@ -49,7 +49,7 @@ if(($_SESSION['login'] == 1) ){?>
 
         </div>
     </section>
-	<?php require('includes/new_umfrage.php'); ?>
+	
     <section class="backend hide" id="neueUmfrage">
         <div class="wrapper">
             <form method="post" accept-charset="utf-8">
@@ -74,7 +74,7 @@ if(($_SESSION['login'] == 1) ){?>
                     <input type="file" name="bild2">
                 </div>
                 <div class="flex-box">
-                    <input type="submit" value="Umfrage erstellen" class="btn" id="umfrageSubmit" name="submit">
+                    <input type="submit" value="Umfrage erstellen" class="btn" id="umfrageSubmit">
                 </div>
             </form>
             

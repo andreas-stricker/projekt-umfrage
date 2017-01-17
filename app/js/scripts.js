@@ -166,9 +166,14 @@ $('document').ready(function(){
 
 		$.ajax({
 			url: 'includes/new_umfrage.php',
-			data: {action: 'umfrage_erstellen'},
+			data: {
+				fragestellung: fragestellung,
+				antwort1: antwort1,
+				bild1: bild1,
+				antwort2: antwort2,
+				bild2: bild2
+			},
 			type: 'post',
-			dataType: 'json',
 			success: function(data) {
 				alert(data);
 			},
