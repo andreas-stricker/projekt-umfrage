@@ -146,3 +146,4 @@ $prozent2 = ($clicks2/$summeClicks) * 100;
         </div>
     </div>
 </section>
+
