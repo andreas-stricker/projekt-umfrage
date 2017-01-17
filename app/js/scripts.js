@@ -170,6 +170,8 @@ $('document').ready(function(){
 		$antwort1= $('#antwort1').val();
 		$antwort2= $('#antwort2').val();
 
+		// var formData = new FormData(this);
+
 
 		$.ajax({
 			url: 'includes/new_umfrage.php',
@@ -193,6 +195,5 @@ $('document').ready(function(){
 		loadProgressBars();
 	}
 	
-	console.log(frage);
 	
 });
