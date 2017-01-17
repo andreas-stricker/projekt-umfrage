@@ -1,5 +1,6 @@
 <?php
 
+
 $getumfrage_data_sql = "SELECT * FROM umfrage";
 $result = mysqli_query($dblink, $getumfrage_data_sql);
 $row = mysqli_fetch_assoc($result);
@@ -73,7 +74,7 @@ if(($_SESSION['login'] == 1) ){?>
                     <input type="file" name="bild2">
                 </div>
                 <div class="flex-box">
-                    <input type="submit" value="Umfrage erstellen" class="btn" id="umfrageSubmit">
+                    <input type="submit" value="Umfrage erstellen" class="btn" id="umfrageSubmit" name="submit">
                 </div>
             </form>
             

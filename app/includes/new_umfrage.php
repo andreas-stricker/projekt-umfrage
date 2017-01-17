@@ -1,8 +1,10 @@
 <?php
+include("dbconnect.php");
 
-if(!empty($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
+if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == "xmlhttprequest") {
 
-	// if(isset($_POST['action']) && $_POST['action'] == 'umfrage_erstellen') {
+echo 'Request';
+	if(isset($_POST['action']) && $_POST['action'] == 'umfrage_erstellen') {
 		$fragestellung = $_POST['frage'];
 		$antwort1 = $_POST['antwort1'];
 		$bild1 = $_POST['bild1'];
@@ -14,10 +16,10 @@ if(!empty($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
 
 			mysqli_query($dblink, $umfrage_erstellen_sql);
 
-			header('Location: ?page=admin');
+			// header('Location: ?page=admin');
 		} else {
 			echo "Hier scheint ein Fehler aufgetreten zu sein";
 		}
 		
-	// }
+	}
 }
