@@ -11,11 +11,12 @@ echo 'Request';
 		$antwort2 = $_POST['antwort2'];
 		$bild2 = $_FILES['bild2'];
 
-		
-    }
+		$bildName1 = $_FILES["bild1"]["name"];
+		$bildName2 = $_FILES["bild2"]["name"];
+
 
 		if(!empty($frage) && !empty($antwort1) && !empty($antwort2) ) {
-			$umfrage_erstellen_sql = "INSERT INTO umfrage (frage, antwort1, antwort2) VALUES ('$frage', '$antwort1', '$antwort2')";	
+			$umfrage_erstellen_sql = "INSERT INTO umfrage (frage, antwort1, img1, antwort2, img2) VALUES ('$frage', '$antwort1', '$bildName1', '$antwort2', '$bildName2')";	
 
 			mysqli_query($dblink, $umfrage_erstellen_sql);
 
