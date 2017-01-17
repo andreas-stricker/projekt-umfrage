@@ -161,23 +161,22 @@ $('document').ready(function(){
 	});
 
 	// Neue Umfrage bestätigen
-	$('#umfrageSubmit').click(function() {
+	$('#umfrageSubmit').click(function(event) {
 		event.preventDefault();
 
-		var frage = $('#frage').val();
-		var antwort1 = $('#antwort1').val();
-		var bild1 = $('#bild1').val();
-		var antwort2 = $('#antwort2').val();
-		var bild2 = $('#bild2').val();
+
+
+		$frage= $('#frage').val();
+		$antwort1= $('#antwort1').val();
+		$antwort2= $('#antwort2').val();
+
 
 		$.ajax({
 			url: 'includes/new_umfrage.php',
 			data: {
-				frage: frage,
-				antwort1: antwort1,
-				bild1: bild1,
-				antwort2: antwort2,
-				bild2: bild2
+				frage: $frage,
+				antwort1: $antwort1,
+				antwort2: $antwort2,
 			},
 			type: 'post',
 			success: function(data) {
