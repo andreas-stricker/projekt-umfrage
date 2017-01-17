@@ -33,11 +33,12 @@ print_r($row);
 
 
             
-            HIER KOMMT DAS FORMULAR ZUR ÄNDERUNG DER AKTUELLEN UMFRAGE
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+           <!--  HIER KOMMT DAS FORMULAR ZUR ÄNDERUNG DER AKTUELLEN UMFRAGE
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
 
 
             <input id="umfrageBeenden" type="button" class="btn" value="Umfrage beenden und speichern">
+            <input id="umfrageErstellen" type="button" class="btn" value="Neue Umfrage erstellen">
 
             <div class="hinweis exists">
                 <img class="icon icons8-Attention" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADQUlEQVRoQ+2ZjZFNQRCFz0aACBABIkAEiAARIAJEgAgQASJABIgAESAC6qu686pf377z/2o9dqq2trb23p5zuk/3TPc90ZGvkyPHrzMCpx3BmRG4Kum6pBuSLknib7s+S/om6YOkj5L4e3iNEgDoXUn3FtAtgCDzStLrhVjLu7tnewmcl/RY0sOuXdcvPZf0VNLPVns9BG5LeikJEjMX4O9LettitJXAs4LX3y0AkAeAks7JBwjzmxy5lQFJNB7VkqglwOaAR+t+/VpI4blaCWCPSAL2XGCT3CAaxVVLAMlE4NEtIGqBe0AQIY/IJ7+qSNQQAOADZx2vI4UppXCRFuXVR+NFqVCUCBDmNw78lyX86HzmoiQjwyvO6J1cYucIEN6vrtrgeRJxNviEGRJE1UYCeV7ekmmOQCSdaw2y+e08WYp2ehwHfXLvbkppyyiewPt2kbBPGjTTS4At2McnNlFYRX6LgDeAdCDVUm1GCCBfwFophQ7cIoD3AZwWNZmy1rJGCLAP5ZWzJy0IEYW9FRGINHih0ftsMkqAKPxweFc5GBHwzLkeUE5b1ygB9qOs2msHVwyKy25FBPxLPfKZEYFIRitnRgQoYbYZubk0IacRAU7792ZjzghklI2AD31L7be2Z0goysc9p0cRmLHxLAkV7fwXBI5OQiSKvRH2JnFr0kfP+yTmJrw37agpo6vaOwNZpY3imXTIg6wSY/axroNs1lVilED3VYKNuThdNAh6TuPRcuzl8z0antVep7Nd0YarRwhE3WDTdfpvbGjCG/E/21KiiqgrQkocbIds6rlM2rFlthssNdrRWIWDjlHHbBLIlhGOH8t3j1VSbkbTCSLBCT1zsMW12Q+MhwdbiQT9MN8B/KL5Z5OWZt/aADBTv2jawXeDaJy5h6EkofQwGxGJiATgqdl0S7VEsIctgEdj+irwgKslkJOT9QhHPzNOpEXy2fE6I5I0Xs/12EXZlDqy0hWAzZFUNBYvvZv7P4SRzEE/cFhJEX4/te4lgNexVyvB3T6tEvIAKX14jR97d6ohwt2GSPLTXZJHCVigSd/pM6sfk9OMpM+sKU9qiGafmUlgGEyPgTMCPV6b+c7RR+APKEO+MQWY04MAAAAASUVORK5CYII=" width="48" height="48">
@@ -51,35 +52,6 @@ print_r($row);
                 <a class="btn">Okay</a>
             </div>
             
-
-            <!--
-            <div>
-                <div class="ergebnisLine flexbox-box">
-                    <img src="http://placehold.it/150x110">
-                    
-                    <div class="bar flexbox-box">
-                        <h3>Antwort 1</h3>
-                        <div class="meter meter1">
-                            <span data-width="<?php echo $prozent1; ?>"></span>
-                        </div>
-                        <div class="percentage"><span class="percentage1"><?php echo $prozent1; ?> %</span> <p><span id="stimmen1"></span> Stimmen</p></div>
-                    </div>
-                </div>
-
-                <div class="ergebnisLine flexbox-box">
-                    <img src="http://placehold.it/150x110">
-                    
-                    <div class="bar flexbox-box">
-                        <h3>Antwort 2</h3>
-                        <div class="meter meter2">
-                            <span data-width="<?php echo $prozent2; ?>"></span>
-                        </div>
-                        <div class="percentage"><span class="percentage2"><?php echo $prozent1; ?> %</span> <p><span id="stimmen2"></span> Stimmen</p></div>
-                    </div>
-                </div>
-            </div>
-
-            -->
 
         </div>
     </div>
@@ -147,4 +119,39 @@ print_r($row);
         </div>
     </div>
 </section>
+
+<section class="backend" id="neue-umfrage">
+	<div class="wrapper">
+		<form action="umfrage_erstellen" method="post" accept-charset="utf-8">
+			<div class="flexbox-box">
+			<label for="frage">Gib hier die Fragestellung ein</label>
+			<input type="text" name="frage">
+			</div>
+			<div class="flexbox-box">
+				<label for="antwort1">Gib hier die 1. Antwort ein</label>
+				<input type="text" name="antwort1">
+			</div>
+			<div class="flexbox-box">
+				<label for="bild1">Lade hier die 1. Bild hoch</label>
+				<input type="text" name="bild1">
+			</div>
+			<div class="flexbox-box">
+				<label for="antwort2">Gib hier die 2. Antwort ein</label>
+				<input type="text" name="antwort2">
+			</div>
+			<div class="flexbox-box">
+				<label for="bild2">Lade hier die 2. Bild hoch</label>
+				<input type="text" name="bild2">
+			</div>
+			<div class="flex-box">
+				<input type="submit" value="Umfrage erstellen" class="btn">
+			</div>
+		</form>
+		
+
+	</div>
+	
+</section>
+
+
 
