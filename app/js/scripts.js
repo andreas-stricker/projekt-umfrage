@@ -31,8 +31,8 @@ function loadErgebnis(){
       success: function(data) 
       {
         
-        $clicks1 = parseInt(data[0]);  
-        $clicks2 = parseInt(data[1]);
+        $clicks1 = data[0];  
+        $clicks2 = data[1];
 
         $('#stimmen1').html($clicks1);
         $('#stimmen2').html($clicks2);
@@ -46,8 +46,8 @@ function loadErgebnis(){
 		if(isNaN($prozent2)){ $prozent2 = '0';}
 
 
-		$('.percentage1').html($prozent1+'%');
-		$('.percentage2').html($prozent2+'%');
+		$('.percentage1').html(parseInt($prozent1)+'%');
+		$('.percentage2').html(parseInt($prozent2)+'%');
 
 		$('.meter1 span').data('width', $prozent1+'%');
 		$('.meter2 span').data('width', $prozent2+'%');
