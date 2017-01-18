@@ -8,9 +8,9 @@
             $row   = mysqli_fetch_row($result);
             $frage = $row['0'];
             $antwort1 = $row['1'];       
-            $img1 = 'images/'.$row['2'].'.jpg';
+            $img1 = 'uploads/'.$row['2'];
             $antwort2 = $row['3'];       
-            $img2 = 'images/'.$row['4'].'.jpg';
+            $img2 = 'uploads/'.$row['4'];
         ?>
         
 
@@ -24,14 +24,14 @@
                         <div class="flex-item">
                         	<input type="radio" name="antwort" id="1" value="1">
                         	<label for="1" class="flexbox-box">
-                        		  <img src="http://placehold.it/350x300">
+                        		  <img src="<?php echo $img1;?>">
                         		<p><?php echo $antwort1; ?></p>
                         	</label> 
                         </div>
                         <div class="flex-item">
                         	<input type="radio" name="antwort" id="2" value="2">
                         	<label for="2" class="flexbox-box">
-                        		  <img src="http://placehold.it/350x300">
+                        		  <img src="<?php echo $img2;?>">
                         		<p><?php echo $antwort2; ?></p>
                         	</label>
                         </div>
