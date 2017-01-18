@@ -113,6 +113,22 @@ $('document').ready(function(){
 
 	/* ------------ ADMIN ----------- */
 
+
+	$('#umfrageLoeschen').click(function(e){
+		e.preventDefault();
+
+		$.ajax({
+			url: 'includes/save_umfrage.php',
+         	data: {action: 'delete'},
+         	type: 'post',
+         	success: function(data) {
+         		if (data == 'geloescht'){
+         			$('.backend .hinweis.deleted').addClass('show');
+         		}
+         	}
+         });
+	});
+
 	//click on absenden
 	$('#umfrageBeenden').click(function(e){
 		e.preventDefault();
@@ -188,9 +204,11 @@ $('document').ready(function(){
 			contentType: false,
 			success: function(data) {
 				// alert(data);
-				// $('#neueUmfrage').hide();
-				$('#backend.admin').append('<input id="umfrageErstellen" type="button" class="btn" value="Neue Umfrage erstellen">');
-
+				//$('#neueUmfrage').hide();
+				//$('#backend.admin').append('<input id="umfrageBeenden" type="button" class="btn" value="Umfrage speichern und beenden">');
+				setTimeout(function(){
+				  location.reload();
+				}, 500);
 			},
 			error: function(data) {
 				alert('here is an error');
@@ -202,8 +220,10 @@ $('document').ready(function(){
 		loadProgressBars();
 	}
 
-	$('.hinweis.saved .btn').click(function(){
-
+	$('.backend .hinweis.saved .btn, .backend .hinweis.deleted .btn').click(function(){
+		setTimeout(function(){
+		  location.reload();
+		}, 500);
 	});
 
 });

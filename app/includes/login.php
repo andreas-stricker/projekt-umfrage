@@ -22,7 +22,7 @@ if(!empty($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
 		$user = mysqli_fetch_assoc($result);
 		// $user = mysqli_fetch_assoc($result);
 
-		print_r($user);
+		//print_r($user);
 
 		$hashed_password = sha1($user_password.$user['salt']);
 
@@ -37,10 +37,10 @@ if(!empty($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
 			exit;
 
 		} else {
-			echo "Bitte gib das korrekte Passwort ein";
+			echo "<p class='loginError'>Bitte gib das korrekte Passwort ein!</p>";
 		}
 	} else {
-		echo "Wir konnten dich leider nicht finden";
+		echo "<p class='loginError'>Wir konnten dich mit diesem Namen leider nicht finden.</p>";
 	}
 }
 

@@ -52,3 +52,14 @@ if(isset($_POST['action']) && !empty($_POST['action']) && ($_POST['action'] =='u
 	echo json_encode($row);
 
 }
+
+
+
+if(isset($_POST['action']) && !empty($_POST['action']) && ($_POST['action'] =='delete')) {
+
+	$deleteUmfrage = "DELETE FROM `umfrage` WHERE 1";
+	$result = mysqli_query($dblink, $deleteUmfrage);
+
+	echo 'geloescht';
+
+}
