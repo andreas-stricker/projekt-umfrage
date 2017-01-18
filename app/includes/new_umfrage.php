@@ -117,7 +117,7 @@ echo 'Request';
 
 
 		if(!empty($frage) && !empty($antwort1) && !empty($antwort2) ) {
-			$umfrage_erstellen_sql = "INSERT INTO umfrage (frage, antwort1, img1, antwort2, img2) VALUES ('$frage', '$antwort1', '$bildName1', '$antwort2', '$bildName2')";	
+			$umfrage_erstellen_sql = "INSERT INTO umfrage (frage, antwort1, clicks1, img1, antwort2, img2, clicks2) VALUES ('$frage', '$antwort1', '0', '$bildName1', '$antwort2', '0', '$bildName2')";	
 
 			mysqli_query($dblink, $umfrage_erstellen_sql);
 
