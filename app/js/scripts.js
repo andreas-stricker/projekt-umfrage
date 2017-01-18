@@ -183,8 +183,8 @@ $('document').ready(function(){
 			processData: false,
 			contentType: false,
 			success: function(data) {
-				alert(data);
-				//$('#neueUmfrage').hide();
+				// alert(data);
+				// $('#neueUmfrage').hide();
 				$('#backend.admin').append('<input id="umfrageErstellen" type="button" class="btn" value="Neue Umfrage erstellen">');
 
 			},
