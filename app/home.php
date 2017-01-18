@@ -1,50 +1,55 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
+ <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <?php 
+            $getumfrage_sql = "SELECT frage, antwort1, img1, antwort2, img2 FROM umfrage";
+            $result = mysqli_query($dblink, $getumfrage_sql);
+            $row   = mysqli_fetch_row($result);
+            $frage = $row['0'];
+            $antwort1 = $row['1'];       
+            $img1 = 'uploads/'.$row['2'];
+            $antwort2 = $row['3'];       
+            $img2 = 'uploads/'.$row['4'];
+        ?>
+        
+
         <section id="umfrage">
             <div class="wrapper">
                 <h1>Umfrage</h1>
-                <h2>Hier steht die Frage?</h2>
+                
+                <?php if(mysqli_num_rows($result) >= 1) { ?>
 
-                <form class="flexbox-box">
-                    <div class="radioContainer flexbox-box">
-                        <div class="flex-item">
-                        	<input type="radio" name="antwort" id="1" value="1">
-                        	<label for="1" class="flexbox-box">
-                        		  <img src="http://placehold.it/350x300">
-                        		<p>Das ist die erste Antwort</p>
-                        	</label> 
-                        </div>
-                        <div class="flex-item">
-                        	<input type="radio" name="antwort" id="2" value="2">
-                        	<label for="2" class="flexbox-box">
-                        		  <img src="http://placehold.it/350x300">
-                        		<p>Das ist die zweite Antwort</p>
-                        	</label>
-                        </div>
-                    </div>
-                    <div class="bottom">
-                        <input id="absenden" type="button" value="Abstimmen">
-                        <a href="#" class="zumErgebnis">Zum Ergebnis</a>
-                    </div>
+                    <h2><?php echo $frage; ?></h2>
 
-                </form>
+                    <form class="flexbox-box">
+                        <div class="radioContainer flexbox-box">
+                            <div class="flex-item">
+                            	<input type="radio" name="antwort" id="1" value="1">
+                            	<label for="1" class="flexbox-box">
+                            		  <img src="<?php echo $img1;?>">
+                            		<p><?php echo $antwort1; ?></p>
+                            	</label> 
+                            </div>
+                            <div class="flex-item">
+                            	<input type="radio" name="antwort" id="2" value="2">
+                            	<label for="2" class="flexbox-box">
+                            		  <img src="<?php echo $img2;?>">
+                            		<p><?php echo $antwort2; ?></p>
+                            	</label>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <input id="absenden" type="button" value="Abstimmen">
+                            <a href="#" class="zumErgebnis">Zum Ergebnis</a>
+                        </div>
+
+                    </form>
+                <?php }else{ ?>
+                    
+                    <h2>Momentan gibt es keine Umfrage</h2>
+
+                <?php } ?>
 
                 <div class="hinweis">
                     <img class="icon icons8-Attention" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADQUlEQVRoQ+2ZjZFNQRCFz0aACBABIkAEiAARIAJEgAgQASJABIgAESAC6qu686pf377z/2o9dqq2trb23p5zuk/3TPc90ZGvkyPHrzMCpx3BmRG4Kum6pBuSLknib7s+S/om6YOkj5L4e3iNEgDoXUn3FtAtgCDzStLrhVjLu7tnewmcl/RY0sOuXdcvPZf0VNLPVns9BG5LeikJEjMX4O9LettitJXAs4LX3y0AkAeAks7JBwjzmxy5lQFJNB7VkqglwOaAR+t+/VpI4blaCWCPSAL2XGCT3CAaxVVLAMlE4NEtIGqBe0AQIY/IJ7+qSNQQAOADZx2vI4UppXCRFuXVR+NFqVCUCBDmNw78lyX86HzmoiQjwyvO6J1cYucIEN6vrtrgeRJxNviEGRJE1UYCeV7ekmmOQCSdaw2y+e08WYp2ehwHfXLvbkppyyiewPt2kbBPGjTTS4At2McnNlFYRX6LgDeAdCDVUm1GCCBfwFophQ7cIoD3AZwWNZmy1rJGCLAP5ZWzJy0IEYW9FRGINHih0ftsMkqAKPxweFc5GBHwzLkeUE5b1ygB9qOs2msHVwyKy25FBPxLPfKZEYFIRitnRgQoYbYZubk0IacRAU7792ZjzghklI2AD31L7be2Z0goysc9p0cRmLHxLAkV7fwXBI5OQiSKvRH2JnFr0kfP+yTmJrw37agpo6vaOwNZpY3imXTIg6wSY/axroNs1lVilED3VYKNuThdNAh6TuPRcuzl8z0antVep7Nd0YarRwhE3WDTdfpvbGjCG/E/21KiiqgrQkocbIds6rlM2rFlthssNdrRWIWDjlHHbBLIlhGOH8t3j1VSbkbTCSLBCT1zsMW12Q+MhwdbiQT9MN8B/KL5Z5OWZt/aADBTv2jawXeDaJy5h6EkofQwGxGJiATgqdl0S7VEsIctgEdj+irwgKslkJOT9QhHPzNOpEXy2fE6I5I0Xs/12EXZlDqy0hWAzZFUNBYvvZv7P4SRzEE/cFhJEX4/te4lgNexVyvB3T6tEvIAKX14jR97d6ohwt2GSPLTXZJHCVigSd/pM6sfk9OMpM+sKU9qiGafmUlgGEyPgTMCPV6b+c7RR+APKEO+MQWY04MAAAAASUVORK5CYII=" width="48" height="48">
@@ -57,9 +62,8 @@
         <section id="ergebnis" class="hide">
             <div class="wrapper">
                 <div class="flexbox-box">
-                    <h1>Umfrage: Hier steht die Frage?</h1>
+                    <h1>Umfrage: <?php echo $frage;?></h1>
                     <h2>Ergebnis</h2>
-
 
                     <div>
                         <div class="ergebnisLine flexbox-box">
@@ -67,23 +71,22 @@
                             
                             <div class="bar flexbox-box">
                                 <h3>Antwort 1</h3>
-                                <div class="meter">
+                                <div class="meter meter1">
                                     <span data-width="75%"></span>
                                 </div>
-                                <div class="percentage">75% <span>8 Stimmen</span></div>
+                                <div class="percentage"><span class="percentage1">90 %</span> <p><span id="stimmen1"></span> Stimmen</p></div>
                             </div>
                         </div>
-
 
                         <div class="ergebnisLine flexbox-box">
                             <img src="http://placehold.it/150x110">
                             
                             <div class="bar flexbox-box">
                                 <h3>Antwort 2</h3>
-                                <div class="meter">
+                                <div class="meter meter2">
                                     <span data-width="25%"></span>
                                 </div>
-                                <div class="percentage">25% <span>2 Stimmen</span></div>
+                                <div class="percentage"><span class="percentage2">10%</span> <p><span id="stimmen2"></span> Stimmen</p></div>
                             </div>
                         </div>
                     </div>
@@ -92,9 +95,7 @@
         </section>
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="js/scripts.js"></script>
+       
 
 
     </body>
-</html>

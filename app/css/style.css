@@ -35,6 +35,7 @@ button:focus {outline:0;}
 	margin:0 auto;
 	width:100%;
 	max-width:1600px;
+	padding:30px 0;
 }
 
 .flexbox-box{
@@ -71,6 +72,8 @@ section{
     min-height:100vh;
 	text-align: center;
 }
+
+
 
 /* --------------------
 ---------- UMFRAGE 
@@ -201,9 +204,12 @@ input[type=radio]:checked + label {
 #absenden:hover,
 .btn:hover{
 	padding:1rem 1.5rem;
-	background-color:#7ef8a6;
 	border-color:#000;
 	border-width:2px;
+}
+
+#absenden:hover{
+		background-color:#7ef8a6;
 }
 
 #umfrage .bottom{
@@ -217,6 +223,7 @@ input[type=radio]:checked + label {
 	bottom:-100vh;
 	right:0;
 	opacity:0;
+	z-index:999;
 	padding:2rem;
 	visibility: hidden;
 	background-color:rgba(228,232,133,0.9);
@@ -245,13 +252,17 @@ input[type=radio]:checked + label {
 }
 
 .hinweis .btn:hover{
-	background-color:rgba(228,232,133,0.85);
+	/*background-color:rgba(228,232,133,0.85);*/
 }
 
 .hinweis.show{
 	bottom:0;
 	opacity:1;
 	visibility: visible;
+}
+
+.hinweis.saved{
+	background-color:rgba(88,245,144,0.9);
 }
 
 /* --------------------
@@ -299,9 +310,10 @@ input[type=radio]:checked + label {
 	position:relative;
 	bottom:0.5rem;
 }
-.ergebnisLine .percentage span{
+.ergebnisLine .percentage p{
 	font-size:1rem;
 	display:block;
+	margin:0;
 }
 
 .ergebnisLine .bar{
@@ -367,13 +379,110 @@ input[type=radio]:checked + label {
 		       background-position: 50px 50px;
 		    }
 		}
+
+
+
+footer {
+	background-color: #fff;
+	height: 50px;
+}
+
+footer a {
+	display: block;
+	width: 5em;
+	text-align: center;
+	padding: 1em;
+	margin: 0 auto;
+}
 		
 
 
 /* --------------------
----------- ADMIN 
+---------- BACKEND 
 -------------------- */
 
+.loginError{
+	text-align:center;
+	margin-top:4rem;
+	padding-bottom:2rem;
+	font-weight: bold;
+}
+
+.backend{
+    padding:2rem;
+    margin:0;
+    background-color:#a7f8ff;
+}
+
+.backend h1{
+	font-size:2.5rem;
+}
+
+.backend h2{
+	font-size:1.5em;
+}
+
+.backend .wrapper > .flexbox-box{
+	-webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.backend .logout{
+	position:absolute;
+	top:2em;
+	right:2em;
+}
+
+#umfrageLoeschen{
+
+
+}
+
+/* bisherige Umfragen */
+
+.backend.alte_umfragen{
+	padding-top:3em;
+    background-color:#d6faff;
+}
+
+.backend.alte_umfragen img{
+	max-width:100px;
+}
+
+.backend.alte_umfragen .meter{
+	height:1rem;
+}
+
+
+/* neue Umfrage Form */
+#neueUmfrage{
+	padding:3em 0;
+}
+#neueUmfrage form{
+	width:100%;
+	max-width:45em;
+	margin:0 auto;
+}
+
+#neueUmfrage form label{
+	width:50%;
+	background-color:rgba(255,255,255,0.2);
+	text-align: left;
+	padding-top:0.25em;
+	padding-left:1%;
+	padding-right:1%;
+}
+
+#neueUmfrage form input[type=text],
+#neueUmfrage form input[type=file]{
+	flex:1;
+	padding:0.25em 0.5em;
+}
+
+#neueUmfrage form .flexbox-box{
+	margin-bottom:2em;
+}
 
 
 /* --------------------
@@ -383,6 +492,10 @@ input[type=radio]:checked + label {
 .hide{
 	display:none;
 }
+
+
+
+
 
 
 /* --------------------
