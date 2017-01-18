@@ -12,7 +12,7 @@ echo 'Request';
 		$bild2 = $_FILES['bild2'];
 
 		
-    }
+    
 
 		if(!empty($frage) && !empty($antwort1) && !empty($antwort2) ) {
 			$umfrage_erstellen_sql = "INSERT INTO umfrage (frage, antwort1, antwort2) VALUES ('$frage', '$antwort1', '$antwort2')";	

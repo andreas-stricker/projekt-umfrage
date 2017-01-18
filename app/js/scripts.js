@@ -167,8 +167,12 @@ $('document').ready(function(){
 		var bild1 = ($("#bild1"))[0].files[0];
 		var bild2 = ($("#bild2"))[0].files[0];
 		myData = new FormData();
-
-
+		
+		myData.append('frage', $('#frage').val() );
++		myData.append('antwort1', $('#antwort1').val() );
++		myData.append('bild1', bild1);
++		myData.append('antwort2', $('#antwort2').val() );
++		myData.append('bild2', bild2);
 
 		$.ajax({
 			url: 'includes/new_umfrage.php',
