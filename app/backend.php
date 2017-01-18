@@ -5,14 +5,12 @@ $getumfrage_data_sql = "SELECT * FROM umfrage";
 $result = mysqli_query($dblink, $getumfrage_data_sql);
 $row = mysqli_fetch_assoc($result);
 
-// print_r($row);
+$clicks1 = (int)$row['clicks1'];
+$clicks2 = (int)$row['clicks2'];
 
-// $clicks1 = (int)$row['clicks1'];
-// $clicks2 = (int)$row['clicks2'];
-
-// $summeClicks = $clicks1 + $clicks2;
-// $prozent1 = ($clicks1/$summeClicks) * 100;
-// $prozent2 = ($clicks2/$summeClicks) * 100;
+$summeClicks = $clicks1 + $clicks2;
+$prozent1 = ($clicks1/$summeClicks) * 100;
+$prozent2 = ($clicks2/$summeClicks) * 100;
 
 
 if(($_SESSION['login'] == 1) ){?>
@@ -25,10 +23,16 @@ if(($_SESSION['login'] == 1) ){?>
                 <a class="logout" href="index.php?page=logout">Logout</a>
 
 
-                <?php /* <h2>Aktuelle Umfrage:<br> <?php echo $row['frage']; ?></h2> */ ?>
-
             <?php if(mysqli_num_rows($result) >= 1) { ?>
+                <h2>Aktuelle Umfrage:</h2>
+                <p>&nbsp;</p>
+                <p><?php echo $row['frage'];?></p>
+                <p><?php echo $row['antwort1'].' : '.$clicks1.' Stimmen  ––– '.$prozent1.'%';?></p>
+                <p><?php echo $row['antwort2'].' : '.$clicks2.' Stimmen  ––– '.$prozent2.'%';?></p>
+                <p>&nbsp;</p>
+
                 <input id="umfrageBeenden" type="button" class="btn" value="Umfrage beenden und speichern">
+
             <?php }else{ ?>
                 <input id="umfrageErstellen" type="button" class="btn" value="Neue Umfrage erstellen">
             <?php } ?>
@@ -37,23 +41,23 @@ if(($_SESSION['login'] == 1) ){?>
                     <div class="wrapper">
                         <form method="post" accept-charset="utf-8" enctype="multipart/form-data">
                             <div class="flexbox-box">
-                            <label for="frage">Gib hier die Fragestellung ein</label>
+                            <label for="frage">Frage:</label>
                             <input id="frage" type="text" name="frage">
                             </div>
                             <div class="flexbox-box">
-                                <label for="antwort1">Gib hier die 1. Antwort ein</label>
+                                <label for="antwort1">Antwort 1</label>
                                 <input id="antwort1" type="text" name="antwort1">
                             </div>
                             <div class="flexbox-box">
-                                <label for="bild1">Lade hier die 1. Bild hoch</label>
+                                <label for="bild1">Bild 1 hochladen</label>
                                 <input type="file" name="bild1" id="bild1">
                             </div>
                             <div class="flexbox-box">
-                                <label for="antwort2">Gib hier die 2. Antwort ein</label>
+                                <label for="antwort2">Antwort 2</label>
                                 <input id="antwort2" type="text" name="antwort2">
                             </div>
                             <div class="flexbox-box">
-                                <label for="bild2">Lade hier die 2. Bild hoch</label>
+                                <label for="bild2">Bild 2 hochladen</label>
                                 <input type="file" name="bild2" id="bild2">
                             </div>
                             <div class="flex-box">

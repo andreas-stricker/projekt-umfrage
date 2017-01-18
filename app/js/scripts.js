@@ -30,16 +30,20 @@ function loadErgebnis(){
       dataType: 'json',  
       success: function(data) 
       {
-        $clicks1 = parseInt(data[0]);  
-        $clicks2 = parseInt(data[1]);
+        
+    
+        $clicks1 = data[0];  
+        $clicks2 = data[1];
+
+        if(isNaN($clicks1)){ $clicks1 = 10}
 
         $('#stimmen1').html($clicks1);
         $('#stimmen2').html($clicks2);
 
         //rechne Prozent
         $summeClicks = parseInt($clicks1) + parseInt($clicks2);
-		$prozent1 = ($clicks1/$summeClicks) * 100;
-		$prozent2 = ($clicks2/$summeClicks) * 100;
+		$prozent1 = parseInt(($clicks1/$summeClicks) * 100);
+		$prozent2 = parseInt(($clicks2/$summeClicks) * 100);
 		$('.percentage1').html($prozent1+'%');
 		$('.percentage2').html($prozent2+'%');
 
@@ -195,6 +199,9 @@ $('document').ready(function(){
 	if($('.backend').hasClass('alte_umfragen')){
 		loadProgressBars();
 	}
-		
+
+	$('.hinweis.saved .btn').click(function(){
+
+	});
 
 });
